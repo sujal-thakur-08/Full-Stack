@@ -1,0 +1,57 @@
+REACT STUDENT MANAGEMENT SYSTEM - LAB MST
+
+WHAT THIS DOES:
+A React web application that manages student information. Users can view existing students and add new students to the list. The app displays student cards with name, ID, and age.
+
+MAIN CODE STRUCTURE:
+
+App.jsx:
+- Uses useState to store student list
+- Has form inputs for name, id, age
+- addStudent() function adds new students
+- Maps through students to display cards
+
+StudentCard.jsx:
+- Component that displays student info
+- Takes props: name, id, age
+- Returns formatted student card
+
+FEATURES:
+✓ View student list
+✓ Add new students
+✓ Simple form validation
+✓ Responsive card layout
+✓ Centered page design
+
+HOW TO USE:
+1. View existing students (Alice, Bob, Charlie)
+2. Fill in Name, ID, Age fields
+3. Click "Add" button
+4. New student appears in the list
+
+REACT CONCEPTS USED:
+- useState hook for state management
+- Components and props
+- Event handling (onClick, onChange)
+- Array methods (map, concat)
+- Conditional rendering
+
+FILES INCLUDED:
+- App.jsx → Main component with student logic
+- App.css → Styling for layout and cards
+- student-card.jsx → Individual student card component
+- package.json → Project dependencies
+- index.html → Main HTML file
+
+TECHNOLOGIES:
+- React 18
+- Vite (build tool)
+- CSS3 (flexbox layout)
+- JavaScript ES6
+
+LEARNING OUTCOMES:
+1. How to manage state in React applications
+2. How to create reusable components
+3. How to handle user input and forms
+4. How to display dynamic lists of data
+5. How to style React applications with CSS

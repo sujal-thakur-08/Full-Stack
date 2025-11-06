@@ -1,0 +1,85 @@
+NODE.JS EMPLOYEE MANAGEMENT SYSTEM - CONSOLE APPLICATION
+
+WHAT THIS DOES:
+A command-line application built with Node.js that manages employee records. Users can add, list, and remove employees through a text-based menu system.
+
+NODE.JS CODE:
+
+const readline = require('readline');
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+const employees = [];
+
+function showMenu() {
+    console.log('\n--- Employee Management System ---');
+    console.log('1. Add a new employee');
+    console.log('2. List all employees');
+    console.log('3. Remove an employee by ID');
+    console.log('4. Exit');
+    rl.question('Please enter your choice: ', (choice) => {
+        handleChoice(choice);
+    });
+}
+
+function addEmployee() {
+    rl.question('Enter employee name: ', (name) => {
+        rl.question('Enter employee ID: ', (id) => {
+            let idExists = false;
+            for (let i = 0; i < employees.length; i++) {
+                if (employees[i].id === id) {
+                    idExists = true;
+                    break;
+                }
+            }
+            
+            if (idExists) {
+                console.log('Employee ID already exists');
+            } else {
+                employees.push({ name: name, id: id });
+                console.log('Employee added successfully!');
+            }
+            showMenu();
+        });
+    });
+}
+
+Explanation:
+require('readline') → Imports Node.js module for reading user input
+readline.createInterface() → Creates interface for console input/output
+rl.question() → Asks user for input and waits for response
+console.log() → Prints text to the console
+employees.push() → Adds new employee object to array
+for loop → Simple loop to check if ID already exists
+
+CONSOLE INTERACTION:
+rl.question('Enter employee name: ', (name) => {
+    // Code runs after user types something
+});
+
+rl.on('close', () => {
+    console.log('Goodbye!');
+    process.exit(0);
+});
+
+Explanation:
+Callback functions → Code that runs after user input
+process.exit(0) → Closes the Node.js application
+Arrow functions → (name) => for handling user responses
+
+IMPORTANT NODE.JS CONCEPTS:
+- Modules → require() to import built-in Node.js functionality
+- Callbacks → Functions that run after async operations
+- Console I/O → Reading from keyboard and writing to screen
+- Arrays → Storing multiple employee objects
+- Objects → { name: name, id: id } to store employee data
+
+WHAT I LEARNED:
+1. How to create interactive console applications in Node.js
+2. How to use the readline module for user input
+3. How to work with callbacks and asynchronous code
+4. How to manage data with arrays and objects
+5. How to create menu-driven applications with functions

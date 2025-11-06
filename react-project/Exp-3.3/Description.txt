@@ -1,0 +1,83 @@
+JAVASCRIPT CLASS HIERARCHY - INHERITANCE & POLYMORPHISM
+
+WHAT THIS DOES:
+A JavaScript demonstration of object-oriented programming using ES6 classes. Shows inheritance with a base Person class and two subclasses: Student and Teacher.
+
+JAVASCRIPT CLASSES:
+
+class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    displayInfo() {
+        return `Name: ${this.name}, Age: ${this.age}`;
+    }
+
+    introduce() {
+        return `Hello, I'm ${this.name}`;
+    }
+}
+
+class Student extends Person {
+    constructor(name, age, grade, course) {
+        super(name, age);
+        this.grade = grade;
+        this.course = course;
+    }
+
+    displayInfo() {
+        return `${super.displayInfo()}, Grade: ${this.grade}, Course: ${this.course}`;
+    }
+
+    study() {
+        return `${this.name} is studying ${this.course}`;
+    }
+}
+
+class Teacher extends Person {
+    constructor(name, age, subject, department) {
+        super(name, age);
+        this.subject = subject;
+        this.department = department;
+    }
+
+    displayInfo() {
+        return `${super.displayInfo()}, Subject: ${this.subject}`;
+    }
+
+    teach() {
+        return `${this.name} is teaching ${this.subject}`;
+    }
+}
+
+Explanation:
+class → Defines a new class in JavaScript
+constructor() → Special method that runs when creating new objects
+extends → Creates inheritance relationship between classes
+super() → Calls the parent class constructor or methods
+this → Refers to the current object instance
+
+HTML INTERFACE:
+<button onclick="showPersonInfo()">Show Person</button>
+<button onclick="showStudentInfo()">Show Student</button>
+<div id="output"></div>
+
+Explanation:
+onclick → Runs JavaScript function when button is clicked
+getElementById() → Finds HTML element by its ID
+innerHTML → Changes the content inside an HTML element
+
+IMPORTANT CONCEPTS:
+- Inheritance → Child classes get properties and methods from parent
+- Constructor → Special method for creating object instances
+- Method Overriding → Child classes can change parent methods
+- Super keyword → Access parent class methods and constructor
+
+WHAT I LEARNED:
+1. How to create classes in JavaScript using ES6 syntax
+2. How to use inheritance with extends keyword
+3. How to override methods in child classes
+4. How to use super() to call parent class methods
+5. How to connect JavaScript classes with HTML interface

@@ -1,0 +1,91 @@
+MONGODB PRODUCT MANAGEMENT API - EXPERIMENT 15
+
+WHAT THIS DOES:
+A Node.js REST API using Express and MongoDB to manage products. The API allows creating, reading, updating, and deleting products with variants (color, size, stock). Each product has name, price, category, and multiple variants.
+
+SERVER.JS CODE:
+
+const express = require("express");
+const mongoose = require("mongoose");
+const productRoutes = require("./routes/productRoutes");
+
+const app = express();
+app.use(express.json());
+
+mongoose.connect("mongodb://127.0.0.1:27017/productdb")
+.then(() => console.log("✅ MongoDB Connected"))
+.catch(err => console.error(err));
+
+app.use("/products", productRoutes);
+app.listen(3000, () => console.log("🚀 Server running at http://localhost:3000"));
+
+PRODUCT MODEL (models/Product.js):
+
+const productSchema = new mongoose.Schema({
+  name: { type: String, required: true, unique: true, trim: true },
+  price: { type: Number, required: true, min: 0 },
+  category: { type: String, required: true },
+  variants: [
+    {
+      color: { type: String },
+      size: { type: String },
+      stock: { type: Number, min: 0 }
+    }
+  ]
+}, { timestamps: true });
+
+API ENDPOINTS (routes/productRoutes.js):
+
+GET /products → Get all products
+GET /products/:id → Get single product by ID
+POST /products → Create new product
+PUT /products/:id → Update existing product
+DELETE /products/:id → Delete product
+
+CRUD OPERATIONS:
+- CREATE → POST request with product data
+- READ → GET requests for all or single products
+- UPDATE → PUT request with updated data
+- DELETE → DELETE request with product ID
+
+SAMPLE PRODUCT DATA:
+{
+  "name": "Laptop",
+  "price": 999,
+  "category": "Electronics",
+  "variants": [
+    { "color": "Black", "size": "15-inch", "stock": 10 },
+    { "color": "Silver", "size": "13-inch", "stock": 5 }
+  ]
+}
+
+DATABASE FEATURES:
+- MongoDB local connection (mongodb://127.0.0.1:27017/productdb)
+- Mongoose ODM for schema validation
+- Automatic timestamps (createdAt, updatedAt)
+- Data validation (required, unique, min values)
+- Error handling for all operations
+
+API TESTING:
+Start server: node server.js
+GET all: http://localhost:3000/products
+POST new: Send JSON data to /products
+PUT update: Send JSON to /products/ID
+DELETE: DELETE request to /products/ID
+
+IMPORTANT CONCEPTS:
+- REST API Design → Standard HTTP methods for CRUD
+- MongoDB Integration → NoSQL database with collections
+- Mongoose Schema → Data structure and validation
+- Express Routing → Organized endpoint management
+- Async/Await → Handling database operations
+- Error Handling → Proper HTTP status codes
+
+WHAT I LEARNED:
+1. How to connect Node.js application to MongoDB database
+2. How to create Mongoose schemas with validation rules
+3. How to build RESTful APIs with proper HTTP methods
+4. How to handle async database operations with try-catch
+5. How to organize code with separate models and routes files
+6. How to work with embedded documents (variants array)
+7. How to implement proper error handling and status codes

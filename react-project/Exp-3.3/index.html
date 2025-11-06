@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Person Class Hierarchy Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            max-width: 800px;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border: 2px solid black;
+        }
+
+        h1 {
+            text-align: center;
+            color: black;
+            margin-bottom: 30px;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+
+        button {
+            padding: 12px 20px;
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background-color: darkblue;
+        }
+
+        #output {
+            border: 1px solid gray;
+            background-color: #f8f8f8;
+            padding: 20px;
+            min-height: 200px;
+        }
+
+        #output h3 {
+            color: black;
+            margin-top: 0;
+        }
+
+        #output h4 {
+            color: black;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        #output p {
+            margin: 8px 0;
+            color: black;
+        }
+
+        .info-text {
+            text-align: center;
+            color: gray;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Person Class Hierarchy Demo</h1>
+        
+        <p class="info-text">Click the buttons below to see JavaScript class inheritance!</p>
+        
+        <div class="button-container">
+            <button onclick="showPersonInfo()">Show Person</button>
+            <button onclick="showStudentInfo()">Show Student</button>
+            <button onclick="showTeacherInfo()">Show Teacher</button>
+            <button onclick="showAllInfo()">Show All Classes</button>
+        </div>
+
+        <div id="output">
+            <h3>Output will appear here...</h3>
+            <p>Click any button above to see the class hierarchy demonstration.</p>
+        </div>
+    </div>
+
+    <script src="classes.js"></script>
+</body>
+</html>

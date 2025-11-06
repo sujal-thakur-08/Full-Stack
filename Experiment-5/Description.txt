@@ -1,0 +1,52 @@
+PRODUCT FILTER - JAVASCRIPT BASICS
+
+WHAT THIS DOES:
+A simple webpage that shows products and lets you filter them by category using a dropdown. When you select a category, only those products show up.
+
+HTML PART:
+<select id="category-filter">
+    <option value="all">All</option>
+    <option value="clothing">Clothing</option>
+    <option value="electronics">Electronics</option>
+    <option value="books">Books</option>
+</select>
+<div id="product-container"></div>
+
+Explanation:
+<select> → Makes a dropdown menu
+<option> → Each choice in the dropdown
+id → Gives elements names so JavaScript can find them
+Empty <div> → Where the products will appear
+
+JAVASCRIPT PART:
+const products = [
+    { name: 'T-Shirt', category: 'clothing' },
+    { name: 'Jeans', category: 'clothing' },
+    { name: 'Headphones', category: 'electronics' }
+];
+
+categoryFilter.addEventListener('change', (e) => {
+    const filtered = e.target.value === 'all' 
+        ? products : products.filter(p => p.category === e.target.value);
+    displayProducts(filtered);
+});
+
+Explanation:
+products array → List of items with name and category
+addEventListener → Listens for dropdown changes
+filter() → Shows only matching products
+displayProducts() → Updates the webpage with new list
+
+IMPORTANT TAGS & FUNCTIONS:
+- <select> and <option> → Makes dropdown menus
+- document.getElementById() → Finds HTML elements
+- addEventListener() → Responds to user clicks/changes
+- .filter() → Picks items from a list
+- .map() → Changes each item in a list
+
+WHAT I LEARNED:
+1. How to make dropdown menus with HTML
+2. How to store data in JavaScript arrays
+3. How to listen for user actions (clicking dropdown)
+4. How to filter and display different lists
+5. How to connect HTML and JavaScript together

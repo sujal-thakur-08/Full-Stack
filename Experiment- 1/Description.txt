@@ -1,0 +1,10 @@
+In this experiment we learned to create form registration.
+
+1. Form Structure: We created a form using the <form> tag to collect basic data.
+2. Input Fields: We used <input> tags to create fields for a user's name (type="text"), email (type="email"), and age (type="number").
+3. Validation: We added important rules to the fields, such as making them required, setting a minlength and maxlength for the name, and a min and max for the age.
+4. Placeholders: We used the placeholder attribute to provide helpful hints inside each input box, like "Enter full name" and "Enter email."
+5. Labels: We used <label> tags linked to each input field to clearly describe what information is needed.
+6. Submit Button: We created a <input type="submit"> button that sends the form data when clicked.
+
+Using all this we created a student form with basic validation to collect basic student data.

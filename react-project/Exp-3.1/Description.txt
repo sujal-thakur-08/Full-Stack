@@ -1,0 +1,76 @@
+REACT PRODUCT CARDS - COMPONENTS & PROPS
+
+WHAT THIS DOES:
+A React app that displays product information in card format. Each card shows different product details using reusable components and props.
+
+JSX COMPONENTS:
+// App.jsx
+function App() {
+  const product1 = {
+    name: "Wireless Mouse",
+    price: "25.99",
+    status: "In Stock"
+  }
+
+  return (
+    <>
+      <h1>Product List</h1>
+      <div id="card-container">
+        <ProductCard name={product1.name} price={product1.price} status={product1.status} />
+      </div>
+    </>
+  )
+}
+
+// ProductCard.jsx
+function ProductCard({ name, price, status }) {
+    return (
+        <div id="product-card">
+            <h3>{name}</h3>
+            <p>Price: ${price}</p>
+            <p>Status: {status}</p>
+        </div>
+    )
+}
+
+Explanation:
+const product1 = {...} → Creates object with product data
+<ProductCard /> → Custom React component
+{name, price, status} → Destructured props from parent
+JSX expressions {name} → Displays dynamic data in HTML
+import/export → Connects components between files
+
+CSS STYLING:
+#card-container {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+}
+
+#product-card {
+  border: 2px solid #ccc;
+  padding: 20px;
+  background-color: #f9f9f9;
+  width: 200px;
+}
+
+Explanation:
+display: flex → Arranges cards in a row
+gap: 30px → Adds space between cards
+justify-content: center → Centers cards horizontally
+border and padding → Makes cards look like boxes
+
+IMPORTANT REACT CONCEPTS:
+- Components → Reusable pieces of UI (ProductCard)
+- Props → Data passed from parent to child component
+- JSX → Writing HTML-like code in JavaScript
+- Import/Export → Sharing components between files
+- Destructuring → {name, price, status} extracts props
+- Fragment <> → Groups elements without extra div
+
+WHAT I LEARNED:
+1. How to create reusable React components
+2. How to pass data using props between components
+3. How to use JSX expressions to display dynamic content
+4. How to structure React apps with multiple files
+5. How to style React components with CSS

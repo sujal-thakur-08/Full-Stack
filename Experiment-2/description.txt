@@ -1,0 +1,8 @@
+In this experiment, I learned about:
+
+The use of CSS Flexbox to vertically and horizontally center a container on the page, a core technique for modern web layouts.
+Structuring and aligning content within a container by setting `flex-direction: column` and using the `gap` property to maintain consistent spacing between elements.
+Creating specific visual styles and effects, such as shaping a div into a circle with `border-radius`, adding depth with `box-shadow`, and using color to differentiate the purpose of interactive buttons.
+The fundamentals of responsive design by implementing a fluid layout using relative units (%) combined with a `max-width` property, which allows the UI to adapt gracefully to various screen sizes.
+
+From this, I learned about the roles of HTML and CSS; HTML provides the fundamental structure, while CSS controls the layout, styling, and responsiveness essential for building professional user interfaces.

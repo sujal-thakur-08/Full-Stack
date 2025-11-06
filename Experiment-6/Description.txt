@@ -1,0 +1,55 @@
+CANVAS DRAWING TOOL - MOUSE EVENTS & DRAWING
+
+WHAT THIS DOES:
+A simple drawing tool where you can draw lines on a canvas using your mouse. Click and drag to draw, release to stop drawing.
+
+HTML PART:
+<canvas id="drawing-canvas" width="600" height="400"></canvas>
+
+Explanation:
+<canvas> → Creates a drawing area on the webpage
+width="600" height="400" → Sets the size of the drawing area
+id → Gives the canvas a name so JavaScript can find it
+border: 1px solid #000 → Adds a black border around the canvas
+
+JAVASCRIPT PART:
+const canvas = document.getElementById('drawing-canvas');
+const ctx = canvas.getContext('2d');
+let isDrawing = false;
+
+canvas.addEventListener('mousedown', e => {
+    isDrawing = true;
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+});
+
+canvas.addEventListener('mousemove', e => {
+    if (!isDrawing) return;
+    ctx.lineTo(x, y);
+    ctx.stroke();
+});
+
+Explanation:
+getContext('2d') → Gets the drawing tools for the canvas
+isDrawing → Tracks if mouse button is pressed down
+mousedown → Starts drawing when mouse is clicked
+mousemove → Continues drawing line when mouse moves
+beginPath() → Starts a new line
+moveTo() → Sets starting point for drawing
+lineTo() → Draws line to new position
+stroke() → Actually shows the line on canvas
+
+IMPORTANT TAGS & FUNCTIONS:
+- <canvas> → HTML element for drawing graphics
+- getContext('2d') → Gets drawing tools
+- addEventListener() → Listens for mouse actions
+- beginPath() → Starts new drawing path
+- moveTo() and lineTo() → Control drawing lines
+- getBoundingClientRect() → Gets canvas position on page
+
+WHAT I LEARNED:
+1. How to use HTML canvas for drawing
+2. How to track mouse events (click, move, release)
+3. How to draw lines and paths on canvas
+4. How to get mouse position relative to canvas
+5. How to use boolean variables to control drawing state

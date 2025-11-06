@@ -1,0 +1,72 @@
+LIBRARY MANAGEMENT SYSTEM - REACT STATE & EVENT HANDLING
+
+WHAT THIS DOES:
+A React app for managing a library book collection. Users can search books, add new books, and remove existing books. All actions happen instantly without page reloads.
+
+REACT COMPONENTS & STATE:
+const [books, setBooks] = useState([
+  { id: 1, title: "1984", author: "George Orwell" },
+  { id: 2, title: "The Great Gatsby", author: "F. Scott Fitzgerald" }
+]);
+
+const [searchTerm, setSearchTerm] = useState('');
+const [newBookTitle, setNewBookTitle] = useState('');
+const [newBookAuthor, setNewBookAuthor] = useState('');
+
+// Filter books based on search
+const filteredBooks = books.filter(book =>
+  book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+  book.author.toLowerCase().includes(searchTerm.toLowerCase())
+);
+
+// Add new book
+const addBook = () => {
+  if (newBookTitle.trim() && newBookAuthor.trim()) {
+    const newBook = { id: books.length + 1, title: newBookTitle, author: newBookAuthor };
+    setBooks([...books, newBook]);
+    setNewBookTitle('');
+    setNewBookAuthor('');
+  }
+};
+
+Explanation:
+useState() → React hook for managing changing data
+setBooks() → Function to update the books list
+filter() → Creates new array with matching books
+toLowerCase() → Makes search case-insensitive
+includes() → Checks if text contains search term
+trim() → Removes extra spaces from input
+[...books, newBook] → Spread operator adds new book to list
+
+JSX EVENT HANDLING:
+<input
+  value={searchTerm}
+  onChange={(e) => setSearchTerm(e.target.value)}
+  placeholder="Search by title or author"
+/>
+
+<button onClick={addBook}>Add Book</button>
+
+<button onClick={() => removeBook(book.id)}>Remove</button>
+
+Explanation:
+onChange → Runs when user types in input
+onClick → Runs when button is clicked
+e.target.value → Gets the text user typed
+Arrow functions → (e) => for inline event handlers
+
+IMPORTANT REACT CONCEPTS:
+- useState Hook → Manages component state
+- Event Handling → onClick, onChange events
+- Conditional Rendering → Shows filtered results
+- Array Methods → filter(), map() for data manipulation
+- Controlled Components → Input values controlled by state
+- Spread Operator → [...array] for updating arrays
+
+WHAT I LEARNED:
+1. How to manage multiple state variables in React
+2. How to handle user input with controlled components
+3. How to filter and display dynamic lists
+4. How to add and remove items from state arrays
+5. How to create interactive UIs that respond to user actions
+6. React updates the component of the state variable every time a change occurs and the set function is called.
