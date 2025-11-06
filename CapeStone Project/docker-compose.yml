@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+
+  server:
+    build:
+      context: .
+      dockerfile: server/Dockerfile
+    ports:
+      - "4000:4000"
+    environment:
+      - MONGODB_URI=mongodb://admin:password@mongodb:27017
+      - JWT_SECRET=your_jwt_secret
+      - NODE_ENV=development
+    depends_on:
+      - mongodb
+
+  client:
+    build:
+      context: .
+      dockerfile: client/Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://localhost:4000
+    depends_on:
+      - server
+
+volumes:
+  mongodb_data:
